@@ -6,9 +6,9 @@ pipeline {
         // ===== FRONTEND BUILD =====
         stage('Build Frontend') {
             steps {
-                dir('FRONTEND/DevopsPratice') {
+                dir('FRONTEND\\DevopsPratice') {
                     bat 'npm install'
-                    bat 'npm run build'  // usually generates 'build' folder
+                    bat 'npm run build'
                 }
             }
         }
@@ -17,14 +17,11 @@ pipeline {
         stage('Deploy Frontend to Tomcat') {
             steps {
                 bat '''
-                set FRONTEND_BUILD=FRONTEND\\DevopsPratice\\build
-                set TOMCAT_WEBAPP=C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\reactteacherapi
-
-                if exist "%TOMCAT_WEBAPP%" (
-                    rmdir /S /Q "%TOMCAT_WEBAPP%"
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-frontend" (
+                    rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-frontend"
                 )
-                mkdir "%TOMCAT_WEBAPP%"
-                xcopy /E /H /I /Y "%FRONTEND_BUILD%\\*" "%TOMCAT_WEBAPP%"
+                mkdir "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-frontend"
+                xcopy /E /I /Y FRONTEND\\DevopsPratice\\dist\\* "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-frontend"
                 '''
             }
         }
@@ -32,8 +29,8 @@ pipeline {
         // ===== BACKEND BUILD =====
         stage('Build Backend') {
             steps {
-                dir('BACKEND/SpringBootPratice') {
-                    bat 'mvn clean package -DskipTests' // skip tests if you want faster build
+                dir('BACKEND\\SpringBootPratice') {
+                    bat 'mvn clean package'
                 }
             }
         }
@@ -42,20 +39,17 @@ pipeline {
         stage('Deploy Backend to Tomcat') {
             steps {
                 bat '''
-                set BACKEND_WAR=BACKEND\\SpringBootPratice\\target\\*.war
-                set TOMCAT_WAR=C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-backend.war
-                set TOMCAT_APP=C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-backend
-
-                if exist "%TOMCAT_WAR%" (
-                    del /Q "%TOMCAT_WAR%"
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-backend.war" (
+                    del /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-backend.war"
                 )
-                if exist "%TOMCAT_APP%" (
-                    rmdir /S /Q "%TOMCAT_APP%"
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-backend" (
+                    rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-backend"
                 )
-                copy "%BACKEND_WAR%" "%TOMCAT_WAR%"
+                copy "BACKEND\\SpringBootPratice\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-backend.war"
                 '''
             }
         }
+
     }
 
     post {
