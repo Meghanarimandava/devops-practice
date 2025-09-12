@@ -1,0 +1,24 @@
+
+C:\ProgramData\Jenkins\.jenkins\workspace\fullstackpratice>if exist "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\teacher-backend.war" (del /Q "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\teacher-backend.war" ) 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\fullstackpratice>if exist "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\teacher-backend" (rmdir /S /Q "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\teacher-backend" ) 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\fullstackpratice>copy "BACKEND\SpringBootPratice\target\*.war" "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\teacher-backend.war" 
+BACKEND\SpringBootPratice\target\*.war 
+The system cannot find the file specified.
+        0 file(s) copied.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Pipeline Failed.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE
