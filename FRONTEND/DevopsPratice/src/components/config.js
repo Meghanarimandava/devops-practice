@@ -1,4 +1,4 @@
 const config={
-    url:"http://localhost:2030/teacher-backend"
+    url:"http://localhost:2050/teacher-backend"
 }
 export default config;
