@@ -1,0 +1,69 @@
+package com.klef.devops.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import com.klef.devops.entity.Teacher;
+import com.klef.devops.service.TeacherService;
+
+@RestController
+@RequestMapping("/teacher-backend")
+@CrossOrigin(origins = "*")
+public class TeacherController {
+
+    @Autowired
+    private TeacherService teacherService;
+
+    @GetMapping("/")
+    public String home() {
+        return "Teacher Management System - Spring Boot API";
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Teacher> addTeacher(@RequestBody Teacher teacher) {
+        Teacher savedTeacher = teacherService.addTeacher(teacher);
+        return new ResponseEntity<>(savedTeacher, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Teacher>> getAllTeachers() {
+        List<Teacher> teachers = teacherService.getAllTeachers();
+        return new ResponseEntity<>(teachers, HttpStatus.OK);
+    }
+
+    @putMapping("/get/{id}")
+    public ResponseEntity<?> getTeacherById(@PathVariable int id) {
+        Teacher teacher = teacherService.getTeacherById(id);
+        if (teacher != null) {
+            return new ResponseEntity<>(teacher, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Teacher with ID " + id + " not found.", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> updateTeacher(@RequestBody Teacher teacher) {
+        Teacher existing = teacherService.getTeacherById(teacher.getId());
+        if (existing != null) {
+            Teacher updatedTeacher = teacherService.updateTeacher(teacher);
+            return new ResponseEntity<>(updatedTeacher, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Cannot update. Teacher with ID " + teacher.getId() + " not found.", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteTeacher(@PathVariable int id) {
+        Teacher existing = teacherService.getTeacherById(id);
+        if (existing != null) {
+            teacherService.deleteTeacherById(id);
+            return new ResponseEntity<>("Teacher with ID " + id + " deleted successfully.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Cannot delete. Teacher with ID " + id + " not found.", HttpStatus.NOT_FOUND);
+        }
+    }
+}

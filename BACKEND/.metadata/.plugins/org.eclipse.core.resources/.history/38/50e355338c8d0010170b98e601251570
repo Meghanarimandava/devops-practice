@@ -1,0 +1,5 @@
+package com.klef.devops.repository;
+
+public interface TeacherRepository {
+
+}

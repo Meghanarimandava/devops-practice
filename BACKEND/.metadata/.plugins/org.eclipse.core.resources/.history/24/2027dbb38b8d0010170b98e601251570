@@ -1,0 +1,11 @@
+package com.klef.devops.service;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
+public interface TeacherService 
+{
+
+}

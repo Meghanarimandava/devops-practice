@@ -1,0 +1,2 @@
+spring.application.name=SpringBootPratice
+server.port=2030

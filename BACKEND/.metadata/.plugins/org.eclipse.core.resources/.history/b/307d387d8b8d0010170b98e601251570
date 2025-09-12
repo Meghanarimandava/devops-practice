@@ -1,0 +1,6 @@
+package com.klef.devops.service;
+@Enti
+public interface TeacherService 
+{
+
+}

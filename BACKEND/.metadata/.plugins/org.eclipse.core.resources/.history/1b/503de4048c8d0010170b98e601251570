@@ -1,0 +1,5 @@
+package com.klef.devops.entity;
+
+public class Teacher {
+
+}

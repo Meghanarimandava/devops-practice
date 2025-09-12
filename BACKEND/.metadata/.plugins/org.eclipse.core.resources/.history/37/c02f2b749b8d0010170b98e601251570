@@ -1,0 +1,5 @@
+package com.klef.devops.controller;
+
+public class TeacherController {
+
+}
