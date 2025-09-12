@@ -250,3 +250,15 @@
 2025-09-12 19:28:30,460 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-09-12 19:28:30,461 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-09-12 19:28:30,467 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\DEVOPS-PRATICE\BACKEND\SpringBootPratice\src\test\resources
+2025-09-12 22:27:49,830 [Worker-0: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.klef.devops:SpringBootPratice:0.0.1-SNAPSHOT @ C:\DEVOPS-PRATICE\BACKEND\SpringBootPratice\pom.xml.
+2025-09-12 22:27:52,415 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-12 22:27:52,417 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-12 22:27:52,429 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\DEVOPS-PRATICE\BACKEND\SpringBootPratice\src\test\resources
+2025-09-12 22:29:19,963 [Worker-20: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.klef.devops:SpringBootPratice:0.0.1-SNAPSHOT @ C:\DEVOPS-PRATICE\BACKEND\SpringBootPratice\pom.xml.
+2025-09-12 22:29:20,884 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-12 22:29:20,885 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-12 22:29:20,893 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\DEVOPS-PRATICE\BACKEND\SpringBootPratice\src\test\resources
+2025-09-12 22:30:20,266 [Worker-22: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.klef.devops:SpringBootPratice:0.0.1-SNAPSHOT @ C:\DEVOPS-PRATICE\BACKEND\SpringBootPratice\pom.xml.
+2025-09-12 22:30:21,259 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-12 22:30:21,260 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-09-12 22:30:21,265 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\DEVOPS-PRATICE\BACKEND\SpringBootPratice\src\test\resources
