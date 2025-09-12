@@ -29,7 +29,7 @@ pipeline {
         // ===== BACKEND BUILD =====
         stage('Build Backend') {
             steps {
-                dir('BACKEND/teacher-backend') {
+                dir('BACKEND/SpringBootPratice') {
                     bat 'mvn clean package'
                 }
             }
