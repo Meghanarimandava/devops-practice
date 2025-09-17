@@ -57,7 +57,7 @@
     </dependencies>
 
     <build>
-        <finalName>teacher-backend</finalName>
+        <finalName>teacher-Springboot</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -6,7 +6,7 @@ pipeline {
         // ===== FRONTEND BUILD =====
         stage('Build Frontend') {
             steps {
-                dir('FRONTEND\\DevopsPratice') {
+                dir('FRONTEND/DevopsPratice') {
                     bat 'npm install'
                     bat 'npm run build'
                 }
@@ -20,7 +20,9 @@ pipeline {
                 if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-frontend" (
                     rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-frontend"
                 )
+                REM Create new folder
                 mkdir "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-frontend"
+                REM Copy build files
                 xcopy /E /I /Y FRONTEND\\DevopsPratice\\dist\\* "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\student-frontend"
                 '''
             }
@@ -29,7 +31,7 @@ pipeline {
         // ===== BACKEND BUILD =====
         stage('Build Backend') {
             steps {
-                dir('BACKEND\\SpringBootPratice') {
+                dir('BACKEND/SpringBootPratice') {
                     bat 'mvn clean package'
                 }
             }
@@ -39,13 +41,13 @@ pipeline {
         stage('Deploy Backend to Tomcat') {
             steps {
                 bat '''
-                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-backend.war" (
-                    del /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-backend.war"
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-Springboot.war" (
+                    del /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-Springboot.war"
                 )
-                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-backend" (
-                    rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-backend"
+                if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-Springboot" (
+                    rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-Springboot"
                 )
-                copy "BACKEND\\SpringBootPratice\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-backend.war"
+                copy "BACKEND\\SpringBootPratice\\target\\teacher-Springboot.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\teacher-Springboot.war"
                 '''
             }
         }
